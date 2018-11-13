@@ -1,4 +1,4 @@
-###Idea生成Jar
+### Idea生成Jar
 参考链接：https://www.cnblogs.com/qifengshi/p/6036870.html
 ### bug
 [root@Master /]# hadoop jar wordscount.jar WordCount

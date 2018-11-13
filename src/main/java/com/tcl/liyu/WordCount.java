@@ -16,6 +16,7 @@ public class WordCount {
 
     public static void main(String[] args){
         Configuration conf = new Configuration();
+        conf.addResource("core-site.xml");
         try{
             // 获取文件系统
             FileSystem fileSystem = FileSystem.get(conf);
@@ -28,6 +29,10 @@ public class WordCount {
             // 设置Map输入key-value数据类型
             job.setMapperClass(MyMapper.class);
             job.setReducerClass(MyReducer.class);
+
+            // 设置Map规约combiner
+            job.setCombinerClass(MyReducer.class);
+
             // 设置Map输出key-value数据类型
             job.setMapOutputKeyClass(Text.class);
             job.setMapOutputValueClass(IntWritable.class);
